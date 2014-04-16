@@ -54,7 +54,11 @@
     CLLocationAccuracy hAcc = loc.horizontalAccuracy;
     CLLocationAccuracy vAcc = loc.verticalAccuracy;
 
-    NSLog(@"h-acc: %f  lat:  %f   lon:   %f", hAcc, loc.coordinate.latitude, loc.coordinate.longitude);
+    NSLog(@"h-acc: %f  lat:  %f   lon:   %f   alt: %f",
+            hAcc,
+            loc.coordinate.latitude,
+            loc.coordinate.longitude,
+            loc.altitude);
 }
 
 - (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation {
