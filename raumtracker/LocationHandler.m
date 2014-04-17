@@ -47,6 +47,9 @@
     locationManager.activityType = CLActivityTypeFitness;
     [locationManager startUpdatingLocation];
 
+    motionManager = [CMMotionManager new];
+
+
 }
 
 - (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations {

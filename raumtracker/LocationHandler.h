@@ -8,11 +8,12 @@
 
 #import <Foundation/Foundation.h>
 #import <CoreLocation/CoreLocation.h>
-
+#import <CoreMotion/CoreMotion.h>
 
 @interface LocationHandler : NSObject <CLLocationManagerDelegate>
 {
     CLLocationManager *locationManager;
+    CMMotionManager *motionManager;
 }
 
 + (LocationHandler *)sharedInstance;
