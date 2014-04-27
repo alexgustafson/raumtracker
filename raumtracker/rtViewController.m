@@ -18,9 +18,12 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+    if([LocationHandler permissionsAvailable])
+    {
+        locationHandler = [LocationHandler sharedInstance];
+        [locationHandler initialize];
+    }
 
-    locationHandler = [LocationHandler sharedInstance];
-    [locationHandler initialize];
 }
 
 - (void)didReceiveMemoryWarning

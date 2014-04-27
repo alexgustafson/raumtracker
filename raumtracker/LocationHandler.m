@@ -41,15 +41,44 @@
 
 -(void)initialize {
 
-    locationManager = [CLLocationManager new];
-    locationManager.delegate = self;
-    locationManager.desiredAccuracy = kCLLocationAccuracyBest;
-    locationManager.activityType = CLActivityTypeFitness;
-    [locationManager startUpdatingLocation];
+    self.locationManager = [CLLocationManager new];
+    self.locationManager.delegate = self;
+    self.locationManager.desiredAccuracy = kCLLocationAccuracyBest;
+    self.locationManager.activityType = CLActivityTypeFitness;
+    [self.locationManager startUpdatingLocation];
 
-    motionManager = [CMMotionManager new];
+    self.motionManager = [CMMotionManager new];
 
+    if (!self.motionManager.accelerometerAvailable) {
+        NSLog(@"No Accelerometer Available");
+        return;
+    }
 
+    self.motionManager.accelerometerUpdateInterval = 1.0 / 30.0;
+    [self.motionManager startAccelerometerUpdates];
+    self.motionTimer = [NSTimer scheduledTimerWithTimeInterval:self.motionManager.accelerometerUpdateInterval
+                                                   target:self
+                                                 selector:@selector(pollAccel:)
+                                                 userInfo:nil
+                                                  repeats:YES];
+}
+
+- (void)pollAccel
+{
+    CMAccelerometerData *dat = self.motionManager.accelerometerData;
+    CMAcceleration acc = dat.acceleration;
+    CGFloat x = acc.x;
+    CGFloat y = acc.y;
+    CGFloat z = acc.z;
+
+    CGFloat accu = 0.08;
+    if (fabs(x) <accu && fabs(y) < accu && fabs(z) < accu)
+    {
+        NSLog(@"x: %f  y:  %f   z:   %f ",
+                x,
+                y,
+                z);
+    }
 }
 
 - (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations {

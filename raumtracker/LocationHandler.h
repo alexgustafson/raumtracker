@@ -12,12 +12,16 @@
 
 @interface LocationHandler : NSObject <CLLocationManagerDelegate>
 {
-    CLLocationManager *locationManager;
-    CMMotionManager *motionManager;
+
 }
+
+@property CLLocationManager *locationManager;
+@property CMMotionManager *motionManager;
+@property NSTimer *motionTimer;
 
 + (LocationHandler *)sharedInstance;
 + (BOOL)permissionsAvailable;
 - (void)initialize;
+- (void)pollAccel;
 
 @end
