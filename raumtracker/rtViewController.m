@@ -14,6 +14,7 @@
 
 @implementation rtViewController
 
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -22,7 +23,11 @@
     {
         locationHandler = [LocationHandler sharedInstance];
         [locationHandler initialize];
+
     }
+
+    rtOpenGlView *glView = [[rtOpenGlView alloc] initWithFrame:CGRectMake(100,100,50,50)];
+    [self.view addSubview:glView];
 
 }
 

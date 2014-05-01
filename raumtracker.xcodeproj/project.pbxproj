@@ -24,6 +24,9 @@
 		8F96BE9128127CB09A6DB1BE /* rtViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F96B40851F249B5AAD12A2A /* rtViewController.m */; };
 		8F96BFF3A89B137126817D63 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F96B9828619D85BBA375C3B /* UIKit.framework */; };
 		91BD95DF18FDAE0700C070A6 /* LocationHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 91BD95DE18FDAE0700C070A6 /* LocationHandler.m */; };
+		91D56BFA1912D05E00C4C3BC /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 91D56BF91912D05E00C4C3BC /* OpenGLES.framework */; };
+		91D56BFC1912D06B00C4C3BC /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 91D56BFB1912D06B00C4C3BC /* QuartzCore.framework */; };
+		91D56BFF1912D10B00C4C3BC /* rtOpenGlView.m in Sources */ = {isa = PBXBuildFile; fileRef = 91D56BFE1912D10B00C4C3BC /* rtOpenGlView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +63,10 @@
 		8F96BDBF34E98BE6B9313A2E /* raumtracker-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "raumtracker-Prefix.pch"; sourceTree = "<group>"; };
 		91BD95DD18FDAE0600C070A6 /* LocationHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationHandler.h; sourceTree = "<group>"; };
 		91BD95DE18FDAE0700C070A6 /* LocationHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationHandler.m; sourceTree = "<group>"; };
+		91D56BF91912D05E00C4C3BC /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
+		91D56BFB1912D06B00C4C3BC /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		91D56BFD1912D10B00C4C3BC /* rtOpenGlView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rtOpenGlView.h; sourceTree = "<group>"; };
+		91D56BFE1912D10B00C4C3BC /* rtOpenGlView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = rtOpenGlView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +84,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				91D56BFC1912D06B00C4C3BC /* QuartzCore.framework in Frameworks */,
+				91D56BFA1912D05E00C4C3BC /* OpenGLES.framework in Frameworks */,
 				8F96B9E61806E2F7A37E9E5B /* Foundation.framework in Frameworks */,
 				8F96B25014E1BBE4EDA7317F /* CoreGraphics.framework in Frameworks */,
 				8F96BC45551B986E9605905C /* UIKit.framework in Frameworks */,
@@ -108,6 +117,8 @@
 				8F96B40851F249B5AAD12A2A /* rtViewController.m */,
 				91BD95DD18FDAE0600C070A6 /* LocationHandler.h */,
 				91BD95DE18FDAE0700C070A6 /* LocationHandler.m */,
+				91D56BFD1912D10B00C4C3BC /* rtOpenGlView.h */,
+				91D56BFE1912D10B00C4C3BC /* rtOpenGlView.m */,
 			);
 			path = raumtracker;
 			sourceTree = "<group>";
@@ -124,6 +135,8 @@
 		8F96BAA8B623788B34199578 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				91D56BFB1912D06B00C4C3BC /* QuartzCore.framework */,
+				91D56BF91912D05E00C4C3BC /* OpenGLES.framework */,
 				8F96BB58C87E5B4E5AC3EAEC /* Foundation.framework */,
 				8F96B0C04B29B6594709939D /* CoreGraphics.framework */,
 				8F96B9828619D85BBA375C3B /* UIKit.framework */,
@@ -257,6 +270,7 @@
 			files = (
 				8F96B1B23C3064F77C4EB458 /* main.m in Sources */,
 				8F96B6AF88ED4DDF37AB968C /* rtAppDelegate.m in Sources */,
+				91D56BFF1912D10B00C4C3BC /* rtOpenGlView.m in Sources */,
 				8F96BE9128127CB09A6DB1BE /* rtViewController.m in Sources */,
 				91BD95DF18FDAE0700C070A6 /* LocationHandler.m in Sources */,
 			);

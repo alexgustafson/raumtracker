@@ -8,10 +8,15 @@
 
 #import <UIKit/UIKit.h>
 #import "LocationHandler.h"
+#import "rtOpenGlView.h"
 
 @interface rtViewController : UIViewController
 {
     LocationHandler* locationHandler;
+    rtOpenGlView* glView;
+    
 }
+
+
 
 @end
