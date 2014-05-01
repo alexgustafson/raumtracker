@@ -58,7 +58,7 @@
     [self.motionManager startAccelerometerUpdates];
     self.motionTimer = [NSTimer scheduledTimerWithTimeInterval:self.motionManager.accelerometerUpdateInterval
                                                    target:self
-                                                 selector:@selector(pollAccel:)
+                                                 selector:@selector(pollAccel)
                                                  userInfo:nil
                                                   repeats:YES];
 }
