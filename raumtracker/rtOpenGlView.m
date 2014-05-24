@@ -8,6 +8,7 @@
 
 #import "rtOpenGlView.h"
 
+
 @implementation rtOpenGlView
 
 //source(1)
@@ -51,7 +52,7 @@
 // source(1)
 - (void) setupLayer {
     _eaglLayer = (CAEAGLLayer *) self.layer;
-    _eaglLayer.opaque = YES;
+    _eaglLayer.opaque = NO;
 }
 
 // source(1)
@@ -87,15 +88,21 @@
 
 //source(1)
 -(void)render {
-    glClearColor(0, 104.0/255.0, 55.0/255.0, 1.0);
+    glClearColor(0, 0, 0, 0.0);
     glClear(GL_COLOR_BUFFER_BIT);
     [_context presentRenderbuffer:GL_RENDERBUFFER];
 }
 
-@end
+
 
 // sources
 //
 // source(1) : http://www.raywenderlich.com/3664/opengl-tutorial-for-ios-opengl-es-2-0
 //
-//
+
+
+
+
+
+
+@end

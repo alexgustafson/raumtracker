@@ -9,14 +9,21 @@
 #import <UIKit/UIKit.h>
 #import <QuartzCore/QuartzCore.h>
 #import <OpenGLES/ES2/gl.h>
+#import <AVFoundation/AVFoundation.h>
 
 @interface rtOpenGlView : UIView {
+
+    UIView *captureView;
+    AVCaptureSession *captureSession;
+    AVCaptureVideoPreviewLayer *captureLayer;
+
     
     CAEAGLLayer* _eaglLayer;
     EAGLContext* _context;
     GLuint _colorRenderBuffer;
     
 }
+
 
 
 

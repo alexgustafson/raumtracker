@@ -26,9 +26,18 @@
 
     }
 
-    glView = [[rtOpenGlView alloc] initWithFrame:CGRectMake(100,100,50,50)];
+    cameraView = [[rtCameraView alloc] initWithFrame:CGRectMake(10,10,self.view.bounds.size.width - 20 , self.view.bounds.size.height - 20)];
+    [cameraView initialize];
+    [self.view addSubview:cameraView];
+    [cameraView startCameraPreview];
+
+    glView = [[rtOpenGlView alloc] initWithFrame:CGRectMake(10,10,self.view.bounds.size.width - 20 , self.view.bounds.size.height - 20)];
     [self.view addSubview:glView];
 
+}
+
+- (NSUInteger)supportedInterfaceOrientations {
+    return UIInterfaceOrientationPortrait;
 }
 
 - (void)didReceiveMemoryWarning
@@ -37,5 +46,11 @@
     // Dispose of any resources that can be recreated.
 
 }
+
+-(BOOL)shouldAutorotate {
+    return NO;
+}
+
+
 
 @end

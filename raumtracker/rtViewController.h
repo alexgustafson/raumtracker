@@ -9,11 +9,13 @@
 #import <UIKit/UIKit.h>
 #import "LocationHandler.h"
 #import "rtOpenGlView.h"
+#import "rtCameraView.h"
 
 @interface rtViewController : UIViewController
 {
     LocationHandler* locationHandler;
     rtOpenGlView* glView;
+    rtCameraView *cameraView;
     
 }
 

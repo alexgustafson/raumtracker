@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		60331EBA42801142167CA92D /* rtCameraView.m in Sources */ = {isa = PBXBuildFile; fileRef = 603318703C189033E1AB4A8C /* rtCameraView.m */; };
 		8F96B1B23C3064F77C4EB458 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F96BA8EC13961C6331FB7C6 /* main.m */; };
 		8F96B25014E1BBE4EDA7317F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F96B0C04B29B6594709939D /* CoreGraphics.framework */; };
 		8F96B66F43117618F0E9CD4E /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8F96BE572AA438E5FA792A7E /* Main_iPad.storyboard */; };
@@ -40,6 +41,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		603318703C189033E1AB4A8C /* rtCameraView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = rtCameraView.m; sourceTree = "<group>"; };
+		60331FA3D6FFA7B15D5F6FF8 /* rtCameraView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rtCameraView.h; sourceTree = "<group>"; };
 		8F96B071674E8B2803D6DC74 /* raumtrackerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = raumtrackerTests.m; sourceTree = "<group>"; };
 		8F96B0A6EAF80261F512C4FB /* rtAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = rtAppDelegate.h; sourceTree = "<group>"; };
 		8F96B0C04B29B6594709939D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -119,6 +122,8 @@
 				91BD95DE18FDAE0700C070A6 /* LocationHandler.m */,
 				91D56BFD1912D10B00C4C3BC /* rtOpenGlView.h */,
 				91D56BFE1912D10B00C4C3BC /* rtOpenGlView.m */,
+				603318703C189033E1AB4A8C /* rtCameraView.m */,
+				60331FA3D6FFA7B15D5F6FF8 /* rtCameraView.h */,
 			);
 			path = raumtracker;
 			sourceTree = "<group>";
@@ -221,6 +226,11 @@
 			isa = PBXProject;
 			attributes = {
 				ORGANIZATIONNAME = "___FULLUSERNAME___";
+				TargetAttributes = {
+					8F96BD4E91038524845CC322 = {
+						DevelopmentTeam = DJS6N64CRK;
+					};
+				};
 			};
 			buildConfigurationList = 8F96B97C41745A21C415626E /* Build configuration list for PBXProject "raumtracker" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -273,6 +283,7 @@
 				91D56BFF1912D10B00C4C3BC /* rtOpenGlView.m in Sources */,
 				8F96BE9128127CB09A6DB1BE /* rtViewController.m in Sources */,
 				91BD95DF18FDAE0700C070A6 /* LocationHandler.m in Sources */,
+				60331EBA42801142167CA92D /* rtCameraView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -365,10 +376,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "raumtracker/raumtracker-Prefix.pch";
 				INFOPLIST_FILE = "raumtracker/raumtracker-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -378,10 +392,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "raumtracker/raumtracker-Prefix.pch";
 				INFOPLIST_FILE = "raumtracker/raumtracker-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;

@@ -12,6 +12,7 @@
 
 +(LocationHandler *)sharedInstance
 {
+    //singleton setup
     static LocationHandler *_sharedInstance = nil;
 
     static dispatch_once_t oncePredicate;
@@ -54,7 +55,7 @@
         return;
     }
 
-    self.motionManager.accelerometerUpdateInterval = 1.0 / 30.0;
+    self.motionManager.accelerometerUpdateInterval = 1.0 / 5.0;
     [self.motionManager startAccelerometerUpdates];
     self.motionTimer = [NSTimer scheduledTimerWithTimeInterval:self.motionManager.accelerometerUpdateInterval
                                                    target:self
@@ -79,6 +80,11 @@
                 y,
                 z);
     }
+    
+    NSLog(@"x: %f  y:  %f   z:   %f ",
+          x,
+          y,
+          z);
 }
 
 - (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations {
