@@ -15,8 +15,10 @@
 
 -(void)initialize
 {
-    post_url = [[NSURL alloc] initWithString:@"http://raumtracker.againstyou.webfactional.com//api/rtdata_list/"];
-    session_url = [[NSURL alloc] initWithString:@"http://raumtracker.againstyou.webfactional.com//api/rtsession_list/"];
+    //post_url = [[NSURL alloc] initWithString:@"http://raumtracker.againstyou.webfactional.com/api/rtdata_list/"];
+    //session_url = [[NSURL alloc] initWithString:@"http://raumtracker.againstyou.webfactional.com/api/rtsession_list/"];
+    post_url = [[NSURL alloc] initWithString:@"http://192.168.1.2/api/rtdata_list/"];
+    session_url = [[NSURL alloc] initWithString:@"http://192.168.1.2/api/rtsession_list/"];
     queue = [[NSOperationQueue alloc] init];
 
 }

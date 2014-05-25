@@ -171,6 +171,7 @@
                 @"latitude"  : [NSNumber numberWithFloat:loc.coordinate.latitude],
                 @"longitude" : [NSNumber numberWithFloat:loc.coordinate.longitude],
                 @"altitude"  : [NSNumber numberWithFloat:loc.altitude],
+                @"session_key"  : session_key,
         }];
 
         rtData[@"data"] = attitude;

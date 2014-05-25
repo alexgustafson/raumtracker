@@ -16,7 +16,7 @@
 
 -(void)initialize;
 -(void)postJsonData:(NSData *)jsonData;
--(void)postSessionData:(NSData *)jsonData);
+-(void)postSessionData:(NSData *)jsonData;
 -(NSData *)dictToJSON:(NSDictionary *)dict;
 
 @end
