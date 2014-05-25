@@ -19,13 +19,6 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
-    if([LocationHandler permissionsAvailable])
-    {
-        locationHandler = [LocationHandler sharedInstance];
-        [locationHandler initialize];
-
-    }
-
     cameraView = [[rtCameraView alloc] initWithFrame:CGRectMake(10,10,self.view.bounds.size.width - 20 , self.view.bounds.size.height - 20)];
     [cameraView initialize];
     [self.view addSubview:cameraView];
@@ -34,6 +27,13 @@
     glView = [[rtOpenGlView alloc] initWithFrame:CGRectMake(10,10,self.view.bounds.size.width - 20 , self.view.bounds.size.height - 20)];
     [self.view addSubview:glView];
 
+    if([LocationHandler permissionsAvailable])
+    {
+        locationHandler = [LocationHandler sharedInstance];
+        [locationHandler initialize];
+        [locationHandler startTracker];
+
+    }
 }
 
 - (NSUInteger)supportedInterfaceOrientations {
@@ -50,6 +50,7 @@
 -(BOOL)shouldAutorotate {
     return NO;
 }
+
 
 
 

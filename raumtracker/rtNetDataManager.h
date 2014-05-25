@@ -9,11 +9,14 @@
 @interface rtNetDataManager : NSObject
 {
     NSURL *post_url;
+    NSURL *session_url;
     NSOperationQueue *queue;
 }
 
 
 -(void)initialize;
 -(void)postJsonData:(NSData *)jsonData;
+-(void)postSessionData:(NSData *)jsonData);
+-(NSData *)dictToJSON:(NSDictionary *)dict;
 
 @end

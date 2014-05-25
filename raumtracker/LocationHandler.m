@@ -46,12 +46,11 @@
     self.locationManager.delegate = self;
     self.locationManager.desiredAccuracy = kCLLocationAccuracyBest;
     self.locationManager.activityType = CLActivityTypeFitness;
-    [self.locationManager startUpdatingLocation];
+
 
     self.motionManager = [CMMotionManager new];
     self.motionManager.showsDeviceMovementDisplay = YES;
     self.motionManager.deviceMotionUpdateInterval = 1.0 / 5.0;
-    [self.motionManager startDeviceMotionUpdatesUsingReferenceFrame:CMAttitudeReferenceFrameXTrueNorthZVertical];
 
     if (!self.motionManager.accelerometerAvailable) {
         NSLog(@"No Accelerometer Available");
@@ -60,11 +59,7 @@
 
     self.motionManager.accelerometerUpdateInterval = 1.0 / 5.0;
     [self.motionManager startAccelerometerUpdates];
-    self.motionTimer = [NSTimer scheduledTimerWithTimeInterval:self.motionManager.accelerometerUpdateInterval
-                                                   target:self
-                                                 selector:@selector(pollAccel)
-                                                 userInfo:nil
-                                                  repeats:YES];
+
 
     dataManager = [[rtNetDataManager alloc] init];
     [dataManager initialize];
@@ -118,24 +113,42 @@
         NSDate *timestamp = [NSDate dateWithTimeInterval:self.motionManager.deviceMotion.timestamp sinceDate:now];
         rtData[@"timestamp"] = [dateFormatter stringFromDate:timestamp];
 
-        // source: http://www.codetuition.com/ios-tutorials/convert-nsdictionary-or-nsarray-to-json-nsstring-and-vice-versa/
-        NSError *error;
-        NSData *jsonData = [NSJSONSerialization dataWithJSONObject:rtData options:0 error:&error];
-        if(!jsonData) {
-            NSLog(@"JSON error: %@", error);
-        }else{
-            //NSString *JsonString = [[NSString alloc] initWithBytes:[jsonData bytes] length:[jsonData length] encoding:NSUTF8StringEncoding];
-            //NSLog(@"json output %@", JsonString);
-        }
 
-        [dataManager postJsonData:jsonData];
+
+        [dataManager postJsonData:[dataManager dictToJSON:rtData]];
 
 
     }
-
-
-
 }
+
+- (void)startTracker {
+
+    NSUUID *uuid = [[NSUUID alloc] init];
+    session_key = [uuid UUIDString];
+
+    [self.locationManager startUpdatingLocation];
+    [self.motionManager startDeviceMotionUpdatesUsingReferenceFrame:CMAttitudeReferenceFrameXTrueNorthZVertical];
+    self.motionTimer = [NSTimer scheduledTimerWithTimeInterval:self.motionManager.accelerometerUpdateInterval
+                                                        target:self
+                                                      selector:@selector(pollAccel)
+                                                      userInfo:nil
+                                                       repeats:YES];
+
+    NSDictionary *session_data =  @{
+                    @"timestamp" : [NSString stringWithFormat:@"%@", [dateFormatter stringFromDate:[NSDate date]]],
+                    @"session_key"  : session_key,
+            };
+
+    [dataManager postSessionData:[dataManager dictToJSON:session_data]];
+}
+
+- (void)stopTracker {
+    [self.locationManager stopUpdatingLocation];
+    [self.motionManager startDeviceMotionUpdates];
+    [self.motionTimer invalidate];
+    self.motionTimer = nil;
+}
+
 
 - (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations {
     CLLocation * loc = locations.lastObject;
@@ -165,13 +178,6 @@
     }
 }
 
-- (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation {
-
-}
-
-- (void)locationManager:(CLLocationManager *)manager didUpdateHeading:(CLHeading *)newHeading {
-
-}
 
 
 @end

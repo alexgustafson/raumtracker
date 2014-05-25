@@ -18,6 +18,7 @@
     NSDate *now;
     rtNetDataManager *dataManager;
     NSDateFormatter *dateFormatter;
+    NSString *session_key;
 
 }
 
@@ -29,5 +30,8 @@
 + (BOOL)permissionsAvailable;
 - (void)initialize;
 - (void)pollAccel;
+
+-(void)startTracker;
+-(void)stopTracker;
 
 @end
