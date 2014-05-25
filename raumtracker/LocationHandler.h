@@ -20,6 +20,10 @@
     NSDateFormatter *dateFormatter;
     NSString *session_key;
 
+    NSNumber *acceleration_x;
+    NSNumber *acceleration_y;
+    NSNumber *acceleration_z;
+
 }
 
 @property CLLocationManager *locationManager;

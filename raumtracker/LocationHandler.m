@@ -67,6 +67,10 @@
     dateFormatter = [[NSDateFormatter alloc] init];
     dateFormatter.dateFormat = @"yyyy-MM-dd'T'HH:mm:ss.S";
 
+    acceleration_x = [NSNumber numberWithDouble:0.0];
+    acceleration_y = [NSNumber numberWithDouble:0.0];
+    acceleration_z = [NSNumber numberWithDouble:0.0];
+
 
 }
 
@@ -76,18 +80,10 @@
     CMRotationMatrix r = self.motionManager.deviceMotion.attitude.rotationMatrix;
     //self.motionManager.deviceMotion.
     CMAcceleration acc = dat.acceleration;
-    CGFloat x = acc.x;
-    CGFloat y = acc.y;
-    CGFloat z = acc.z;
 
-    CGFloat accu = 0.08;
-    if (fabs(x) <accu && fabs(y) < accu && fabs(z) < accu)
-    {
-        NSLog(@"x: %f  y:  %f   z:   %f ",
-                x,
-                y,
-                z);
-    }
+    acceleration_x = [NSNumber numberWithDouble:self.motionManager.deviceMotion.userAcceleration.x ];
+    acceleration_y = [NSNumber numberWithDouble:self.motionManager.deviceMotion.userAcceleration.y ];
+    acceleration_z = [NSNumber numberWithDouble:self.motionManager.deviceMotion.userAcceleration.z ];
 
     if (now == nil) {
         now = [NSDate dateWithTimeIntervalSinceNow:self.motionManager.deviceMotion.timestamp];
@@ -122,6 +118,8 @@
 }
 
 - (void)startTracker {
+
+
 
     NSUUID *uuid = [[NSUUID alloc] init];
     session_key = [uuid UUIDString];
@@ -171,6 +169,9 @@
                 @"latitude"  : [NSNumber numberWithFloat:loc.coordinate.latitude],
                 @"longitude" : [NSNumber numberWithFloat:loc.coordinate.longitude],
                 @"altitude"  : [NSNumber numberWithFloat:loc.altitude],
+                @"acceleration_x" : acceleration_x,
+                @"acceleration_y" : acceleration_y,
+                @"acceleration_z" : acceleration_z,
                 @"session_key"  : session_key,
         }];
 
