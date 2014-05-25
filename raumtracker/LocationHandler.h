@@ -9,9 +9,15 @@
 #import <Foundation/Foundation.h>
 #import <CoreLocation/CoreLocation.h>
 #import <CoreMotion/CoreMotion.h>
+#import "rtNetDataManager.h"
 
 @interface LocationHandler : NSObject <CLLocationManagerDelegate>
 {
+    NSMutableDictionary *rtData;
+    NSMutableArray *attitude;
+    NSDate *now;
+    rtNetDataManager *dataManager;
+    NSDateFormatter *dateFormatter;
 
 }
 
