@@ -19,12 +19,12 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
-    cameraView = [[rtCameraView alloc] initWithFrame:CGRectMake(10,10,self.view.bounds.size.width - 20 , self.view.bounds.size.height - 20)];
+    cameraView = [[rtCameraView alloc] initWithFrame:CGRectMake(0,0,self.view.bounds.size.width  , self.view.bounds.size.height )];
     [cameraView initialize];
     [self.view addSubview:cameraView];
     [cameraView startCameraPreview];
 
-    glView = [[rtOpenGlView alloc] initWithFrame:CGRectMake(10,10,self.view.bounds.size.width - 20 , self.view.bounds.size.height - 20)];
+    glView = [[rtOpenGlView alloc] initWithFrame:CGRectMake(0,0,self.view.bounds.size.width  , self.view.bounds.size.height )];
     [self.view addSubview:glView];
 
     if([LocationHandler permissionsAvailable])

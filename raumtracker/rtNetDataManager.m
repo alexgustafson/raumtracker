@@ -75,8 +75,6 @@
             NSLog(@"Response: %@", html );
 
         }
-
-
     }
     ];
 }
