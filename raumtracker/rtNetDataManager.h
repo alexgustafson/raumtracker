@@ -4,13 +4,13 @@
 //
 
 #import <Foundation/Foundation.h>
-
+#import "AFNetworking.h"
 
 @interface rtNetDataManager : NSObject
 {
     NSURL *post_url;
     NSURL *session_url;
-    NSURL *upload_image_url;
+    NSString *upload_image_url;
 
     NSOperationQueue *queue;
 }
@@ -19,7 +19,7 @@
 -(void)initialize;
 -(void)postJsonData:(NSData *)jsonData;
 -(void)postSessionData:(NSData *)jsonData;
-- (void)sendImageToServer:(UIImage *)image;
+-(void)sendImageToServer:(NSURL *)filePath;
 -(NSData *)dictToJSON:(NSDictionary *)dict;
 
 @end

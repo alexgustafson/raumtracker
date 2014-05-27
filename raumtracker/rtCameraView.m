@@ -18,6 +18,7 @@
     [self sendSubviewToBack:captureView];
     netHandler = [[rtNetDataManager alloc] init];
     [netHandler initialize];
+    imageCount = 0;
 
 }
 
@@ -88,10 +89,13 @@
 
         NSData *imageData = [AVCaptureStillImageOutput jpegStillImageNSDataRepresentation:imageSampleBuffer];
         UIImage *image = [[UIImage alloc] initWithData:imageData];
-
-        //self.vImage.image = image;
-
-        UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil);
+        NSArray * paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+        NSString * basePath = ([paths count] > 0) ? [paths objectAtIndex:0] : nil;
+        NSData * binaryImageData = UIImagePNGRepresentation(image);
+        NSString *imagePath = [basePath stringByAppendingPathComponent:@"file.png"];
+        [binaryImageData writeToFile:imagePath atomically:YES];
+        [netHandler sendImageToServer:[[NSURL alloc] initWithString:imagePath]];
+        imageCount++;
     }];
 }
 

@@ -16,6 +16,7 @@
     AVCaptureVideoDataOutput *frameOutput;
     AVCaptureStillImageOutput *stillImageOutput;
     rtNetDataManager *netHandler;
+    int imageCount;
 }
 
 

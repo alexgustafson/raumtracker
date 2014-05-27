@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		603311A9CED8EDD1A2D516A3 /* rtNetDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6033175C790D3E103914A580 /* rtNetDataManager.m */; };
 		60331EBA42801142167CA92D /* rtCameraView.m in Sources */ = {isa = PBXBuildFile; fileRef = 603318703C189033E1AB4A8C /* rtCameraView.m */; };
+		8E55A78BAE6E4C639DE8F975 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 48CF21765693410A9C330085 /* libPods.a */; };
 		8F96B1B23C3064F77C4EB458 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F96BA8EC13961C6331FB7C6 /* main.m */; };
 		8F96B25014E1BBE4EDA7317F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F96B0C04B29B6594709939D /* CoreGraphics.framework */; };
 		8F96B66F43117618F0E9CD4E /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8F96BE572AA438E5FA792A7E /* Main_iPad.storyboard */; };
@@ -42,6 +43,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		48CF21765693410A9C330085 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		6033175C790D3E103914A580 /* rtNetDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = rtNetDataManager.m; sourceTree = "<group>"; };
 		603318375CCBADCB6F3D518E /* rtNetDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rtNetDataManager.h; sourceTree = "<group>"; };
 		603318703C189033E1AB4A8C /* rtCameraView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = rtCameraView.m; sourceTree = "<group>"; };
@@ -73,6 +75,7 @@
 		91D56BFB1912D06B00C4C3BC /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		91D56BFD1912D10B00C4C3BC /* rtOpenGlView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rtOpenGlView.h; sourceTree = "<group>"; };
 		91D56BFE1912D10B00C4C3BC /* rtOpenGlView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = rtOpenGlView.m; sourceTree = "<group>"; };
+		A6A5FADA8F8A4143B92BD441 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +98,7 @@
 				8F96B9E61806E2F7A37E9E5B /* Foundation.framework in Frameworks */,
 				8F96B25014E1BBE4EDA7317F /* CoreGraphics.framework in Frameworks */,
 				8F96BC45551B986E9605905C /* UIKit.framework in Frameworks */,
+				8E55A78BAE6E4C639DE8F975 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -151,6 +155,7 @@
 				8F96B0C04B29B6594709939D /* CoreGraphics.framework */,
 				8F96B9828619D85BBA375C3B /* UIKit.framework */,
 				8F96BD27AD19B58C8526106F /* XCTest.framework */,
+				48CF21765693410A9C330085 /* libPods.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -172,6 +177,7 @@
 				8F96B4CF7FB7B49E5789BA8A /* raumtracker */,
 				8F96B2F7E0531D9308772EDD /* raumtrackerTests */,
 				8F96B2038D939F555F557A53 /* .gitignore */,
+				A6A5FADA8F8A4143B92BD441 /* Pods.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -211,9 +217,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8F96B64218CCBC56FAEAC2AD /* Build configuration list for PBXNativeTarget "raumtracker" */;
 			buildPhases = (
+				0E741A04480141F2917DB729 /* Check Pods Manifest.lock */,
 				8F96B19408F376066D4B1EE8 /* Sources */,
 				8F96B7579FEAC323287D5589 /* Frameworks */,
 				8F96B62D92B0A53EB5570ADB /* Resources */,
+				E49B53A26ABE4B6BA89B0A16 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -247,6 +255,8 @@
 			mainGroup = 8F96BF30D971724A5620790A;
 			productRefGroup = 8F96B4FE0C70C2F57D5B85BC /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+			);
 			projectRoot = "";
 			targets = (
 				8F96BD4E91038524845CC322 /* raumtracker */,
@@ -277,6 +287,39 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0E741A04480141F2917DB729 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		E49B53A26ABE4B6BA89B0A16 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		8F96B19408F376066D4B1EE8 /* Sources */ = {
@@ -379,6 +422,7 @@
 		};
 		8F96B3C339818D5D1060B8B6 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A6A5FADA8F8A4143B92BD441 /* Pods.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -395,6 +439,7 @@
 		};
 		8F96B5C9E4A0BE95C3FBB957 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A6A5FADA8F8A4143B92BD441 /* Pods.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
