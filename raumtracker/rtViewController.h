@@ -19,6 +19,6 @@
     
 }
 
-
+- (IBAction)takePhoto:(id)sender;
 
 @end

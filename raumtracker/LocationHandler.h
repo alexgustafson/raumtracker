@@ -24,6 +24,8 @@
     NSNumber *acceleration_y;
     NSNumber *acceleration_z;
 
+    BOOL new_location_data;
+
 }
 
 @property CLLocationManager *locationManager;

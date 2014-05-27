@@ -10,6 +10,8 @@
 {
     NSURL *post_url;
     NSURL *session_url;
+    NSURL *upload_image_url;
+
     NSOperationQueue *queue;
 }
 
@@ -17,6 +19,7 @@
 -(void)initialize;
 -(void)postJsonData:(NSData *)jsonData;
 -(void)postSessionData:(NSData *)jsonData;
+- (void)sendImageToServer:(UIImage *)image;
 -(NSData *)dictToJSON:(NSDictionary *)dict;
 
 @end

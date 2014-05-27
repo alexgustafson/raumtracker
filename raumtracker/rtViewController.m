@@ -34,6 +34,14 @@
         [locationHandler startTracker];
 
     }
+
+    UIButton * btn = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    btn.frame = CGRectMake(0, 0, 100, 50);
+    [btn setTitle:@"Capture Image" forState:UIControlStateNormal];
+    [self.view addSubview:btn];
+    [btn addTarget:self
+               action:@selector(takePhoto:)
+     forControlEvents:UIControlEventTouchUpInside];
 }
 
 - (NSUInteger)supportedInterfaceOrientations {
@@ -51,7 +59,9 @@
     return NO;
 }
 
-
+- (IBAction)takePhoto:(id)sender {
+    [cameraView captureImage];
+}
 
 
 @end

@@ -17,8 +17,9 @@
 {
     //post_url = [[NSURL alloc] initWithString:@"http://raumtracker.againstyou.webfactional.com/api/rtdata/"];
     //session_url = [[NSURL alloc] initWithString:@"http://raumtracker.againstyou.webfactional.com/api/rtsession/"];
-    post_url = [[NSURL alloc] initWithString:@"http://192.168.1.2:8000/api/rtdata/"];
-    session_url = [[NSURL alloc] initWithString:@"http://192.168.1.2:8000/api/rtsession/"];
+    post_url = [[NSURL alloc] initWithString:@"http://192.168.1.8:8000/api/rtdata/"];
+    session_url = [[NSURL alloc] initWithString:@"http://192.168.1.8:8000/api/rtsession/"];
+    upload_image_url = [[NSURL alloc] initWithString:@"http://192.168.1.8:8000/upload_image/"];
     queue = [[NSOperationQueue alloc] init];
 
 }
@@ -92,5 +93,35 @@
     return jsonData;
 }
 
+- (void)sendImageToServer:(UIImage *)image
+{
+    NSData *imageData = UIImagePNGRepresentation(image);
+    NSString *postLength = [NSString stringWithFormat:@"%d", [imageData length]];
+
+    // Init the URLRequest
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
+    [request setHTTPMethod:@"POST"];
+    [request setURL:upload_image_url];
+    [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+    [request setValue:postLength forHTTPHeaderField:@"Content-Length"];
+    [request setHTTPBody:imageData];
+
+    [NSURLConnection
+            sendAsynchronousRequest:upload_image_url
+                              queue:queue
+                  completionHandler:^(
+                          NSURLResponse *response,
+                          NSData *data,
+                          NSError *error) {
+
+                      if([data length] > 0 && error == nil) {
+
+                          NSString *html = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+                          NSLog(@"Response: %@", html );
+
+                      }
+                  }
+    ];
+}
 
 @end
