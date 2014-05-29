@@ -20,9 +20,15 @@
     [netHandler initialize];
     imageCount = 0;
 
+    dateFormatter = [[NSDateFormatter alloc] init];
+    dateFormatter.dateFormat = @"yyyy-MM-dd'T'HH:mm:ss.S";
+
 }
 
 - (void)startCameraPreview {
+
+
+
     AVCaptureDevice *camera = [AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeVideo];
     if (camera == nil) {
         return;
@@ -41,7 +47,7 @@
     NSDictionary *outputSettings = [[NSDictionary alloc] initWithObjectsAndKeys: AVVideoCodecJPEG, AVVideoCodecKey, nil];
     [stillImageOutput setOutputSettings:outputSettings];
     [captureSession addOutput:stillImageOutput];
-
+    [captureSession setSessionPreset:AVCaptureSessionPresetLow];
 
 
     // Start the session. This is done asychronously since -startRunning doesn't return until the session is running.
@@ -92,10 +98,8 @@
         NSArray * paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
         NSString * basePath = ([paths count] > 0) ? [paths objectAtIndex:0] : nil;
         NSData * binaryImageData = UIImagePNGRepresentation(image);
-        NSString *imagePath = [basePath stringByAppendingPathComponent:@"file.png"];
-        [binaryImageData writeToFile:imagePath atomically:YES];
-        [netHandler sendImageToServer:[[NSURL alloc] initWithString:imagePath]];
-        imageCount++;
+        NSDate *timestamp = [dateFormatter stringFromDate:[NSDate date]];
+        [netHandler sendImageToServer:binaryImageData andTimeStamp:timestamp ];
     }];
 }
 
@@ -107,7 +111,6 @@
     } else {
         // .... do anything you want here to handle
         // .... when the image has been saved in the photo album
-        [netHandler sendImageToServer:image];
     }
 }
 

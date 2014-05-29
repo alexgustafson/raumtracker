@@ -36,7 +36,7 @@
     }
 
     UIButton * btn = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    btn.frame = CGRectMake(0, 0, 100, 50);
+    btn.frame = CGRectMake(100, 100, 200, 50);
     [btn setTitle:@"Capture Image" forState:UIControlStateNormal];
     [self.view addSubview:btn];
     [btn addTarget:self

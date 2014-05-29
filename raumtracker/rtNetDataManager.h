@@ -19,7 +19,7 @@
 -(void)initialize;
 -(void)postJsonData:(NSData *)jsonData;
 -(void)postSessionData:(NSData *)jsonData;
--(void)sendImageToServer:(NSURL *)filePath;
+-(void)sendImageToServer:(NSData *)filePath andTimeStamp:(NSString *)timeStamp;
 -(NSData *)dictToJSON:(NSDictionary *)dict;
 
 @end

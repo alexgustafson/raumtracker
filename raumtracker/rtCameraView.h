@@ -17,8 +17,8 @@
     AVCaptureStillImageOutput *stillImageOutput;
     rtNetDataManager *netHandler;
     int imageCount;
+    NSDateFormatter *dateFormatter;
 }
-
 
 - (void)initialize;
 - (void)startCameraPreview;
