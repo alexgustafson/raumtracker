@@ -101,7 +101,7 @@
 
     if (rtData) {
         rtData[@"data"] = attitude;
-        NSDate *timestamp = [NSDate dateWithTimeInterval:self.motionManager.deviceMotion.timestamp sinceDate:now];
+        NSDate *timestamp = [NSDate date];
         rtData[@"timestamp"] = [dateFormatter stringFromDate:timestamp];
 
         if(!new_location_data){

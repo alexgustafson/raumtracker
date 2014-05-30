@@ -13,13 +13,13 @@
 
 
 - (void)initialize {
-    //post_url = [[NSURL alloc] initWithString:@"http://raumtracker.againstyou.webfactional.com/api/rtdata/"];
-    //session_url = [[NSURL alloc] initWithString:@"http://raumtracker.againstyou.webfactional.com/api/rtsession/"];
-    //upload_image_url = @"http://raumtracker.againstyou.webfactional.com/upload_image/";
+    post_url = [[NSURL alloc] initWithString:@"http://raumtracker.againstyou.webfactional.com/api/rtdata/"];
+    session_url = [[NSURL alloc] initWithString:@"http://raumtracker.againstyou.webfactional.com/api/rtsession/"];
+    upload_image_url = @"http://raumtracker.againstyou.webfactional.com/upload_image/";
 
-    post_url = [[NSURL alloc] initWithString:@"http://192.168.1.2:8000/api/rtdata/"];
-    session_url = [[NSURL alloc] initWithString:@"http://192.168.1.2:8000/api/rtsession/"];
-    upload_image_url = @"http://192.168.1.2:8000/upload_image/";
+    //post_url = [[NSURL alloc] initWithString:@"http://192.168.1.2:8000/api/rtdata/"];
+    //session_url = [[NSURL alloc] initWithString:@"http://192.168.1.2:8000/api/rtsession/"];
+    //upload_image_url = @"http://192.168.1.2:8000/upload_image/";
     queue = [[NSOperationQueue alloc] init];
 
 }
